@@ -1,0 +1,14 @@
+namespace :jenkins do
+  secrets_file = 'config/secrets.yml'
+
+  task :load_secrets do
+    if File.exist?(secrets_file)
+      secrets = YAML.load_file(secrets_file)
+      set :jenkins_user, secrets['jenkins']['username']
+      set :jenkins_pass, secrets['jenkins']['api_token']
+    else
+      puts "Please set your secrets. (#{secrets_file})."
+      exit
+    end
+  end
+end
