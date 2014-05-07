@@ -1,0 +1,9 @@
+namespace :deploy do
+  task :create_deploy_path_with_correct_permissions do
+    on roles :all do |host|
+      sudo :mkdir, '-pv', deploy_path
+      sudo :chown, "#{fetch :runner}:#{host.username}", deploy_path
+      sudo :chmod, '775', deploy_path
+    end
+  end
+end
