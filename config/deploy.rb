@@ -14,3 +14,6 @@ set :jenkins_insecure, true
 before 'deploy', 'jenkins:load_secrets'
 before 'deploy:starting', 'deploy:create_deploy_path_with_correct_permissions'
 before 'deploy:starting', 'deploy:create_log_path_with_correct_permissions'
+
+before 'deploy:publishing', 'upstart:prepare_script'
+after 'deploy:published', 'upstart:restart'

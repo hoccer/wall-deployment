@@ -1,0 +1,33 @@
+namespace :upstart do
+  task :prepare_script do
+    invoke 'upstart:upload_script'
+    invoke 'upstart:register_script'
+  end
+
+  task :upload_script do
+    on roles :all do
+      script = "#{fetch :application}.conf"
+      src = "dist/#{script}"
+      temp = "/tmp/#{script}"
+      dest = "/etc/init/#{script}"
+
+      upload! src, temp
+
+      sudo :mv, temp, dest
+      sudo :chown, 'root:root', dest
+      sudo :chmod, 644, dest
+    end
+  end
+
+  task :register_script do
+    on roles :all do
+      sudo :initctl, 'reload-configuration'
+    end
+  end
+
+  task :restart do
+    on roles :all do
+      sudo :service, fetch(:application), 'restart'
+    end
+  end
+end
