@@ -7,12 +7,11 @@ namespace :deploy do
     end
   end
 
-  task :create_log_path_with_correct_permissions do
+  task :fix_linked_dirs_permissions do
     on roles :all do |host|
-      log_path = "#{shared_path}/log"
-      execute :mkdir, '-pv', log_path
-      sudo :chown, "#{fetch :runner}:#{host.username}", log_path
-      sudo :chmod, '775', log_path
+      pathes = linked_dirs(shared_path)
+      sudo :chown, "#{fetch :runner}:#{host.username}", pathes
+      sudo :chmod, '775', pathes
     end
   end
 end
