@@ -4,6 +4,7 @@ lock '3.1.0'
 set :application, 'hoccer-receiver'
 set :runner, 'receiver'
 set :deploy_to, "/home/#{fetch :runner}/#{fetch :application}"
+set :linked_dirs, ['log']
 
 set :scm, :jenkins
 set :repo_url, "https://jenkins.hoccer.de/job/#{fetch :application}"
@@ -12,3 +13,4 @@ set :jenkins_insecure, true
 
 before 'deploy', 'jenkins:load_secrets'
 before 'deploy:starting', 'deploy:create_deploy_path_with_correct_permissions'
+before 'deploy:starting', 'deploy:create_log_path_with_correct_permissions'
