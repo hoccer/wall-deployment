@@ -7,7 +7,7 @@ namespace :config do
 
       template = ERB.new <<-EOF.gsub(/^\s+/, '')
         # Server config
-        server.uri = <%= config[:server] %>
+        server.uri = <%= config[:talk_server] %>
         server.certificate_file = ssl_bks
 
         # Client config
