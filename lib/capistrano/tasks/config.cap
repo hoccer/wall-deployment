@@ -2,6 +2,11 @@ require 'erb'
 
 namespace :config do
   task :create do
+    invoke 'config:create_config_file'
+    invoke 'config:upload_avatar_file'
+  end
+
+  task :create_config_file do
     on roles :all do |host|
       config = host.properties.config
 
@@ -27,6 +32,18 @@ namespace :config do
       config_file = "#{release_path}/receiver.conf"
       upload! StringIO.new(content), config_file
       sudo :chmod, 644, config_file
+    end
+  end
+
+  task :upload_avatar_file do
+    on roles :all do |host|
+      config = host.properties.config
+      avatar_file = config[:avatar_file]
+      avatar_source = "dist/avatars/#{avatar_file}"
+      avatar_dest = "#{release_path}/#{avatar_file}"
+
+      upload! avatar_source, avatar_dest
+      sudo :chmod, 644, avatar_dest
     end
   end
 end
