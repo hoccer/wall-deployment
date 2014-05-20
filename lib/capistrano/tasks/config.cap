@@ -16,6 +16,7 @@ namespace :config do
         server.certificate_file = ssl_bks
 
         # Client config
+        client.contact_name = <%= config[:contact_name] %>
         client.avatar_file = <%= config[:avatar_file] %>
         client.encrypted_attachment_dir = encrypted_attachments
         client.decrypted_attachment_dir = decrypted_attachments
