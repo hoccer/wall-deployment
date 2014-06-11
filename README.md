@@ -1,5 +1,7 @@
 # Hoccer Receiver Deployment
 
+The deployment will fetch the latest build from [Jenkins](https://jenkins.hoccer.de/job/hoccer-receiver/). Note: If the latest Jenkins build was not successful, the deployment will fail.
+
 ## Prerequisites
 
 *Note:* Developed and tested on OS X
@@ -14,6 +16,12 @@ Install all required gems via
 $ bundle
 ```
 
+Create secrets.yml file (get the secret from jenkins):
+
+```bash
+$ cp config/secrets.yml_template config/secrets.yml
+```
+
 ## Deployment
 
 ### Preparation of a target machine
@@ -26,4 +34,3 @@ The deployment to a stage configured in `config/deploy/<stagename>.rb` can be st
 $ bundle exec cap <stagename> deploy
 ```
 
-The deployment will fetch the latest build from [Jenkins](https://jenkins.hoccer.de/job/hoccer-receiver/). Note: If the latest Jenkins build was not successful, the deployment will fail.
