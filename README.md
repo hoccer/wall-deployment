@@ -1,6 +1,6 @@
-# Hoccer Receiver Deployment
+# Hoccer XO WebClient Backend Deployment
 
-The deployment will fetch the latest build from [Jenkins](https://jenkins.hoccer.de/job/hoccer-receiver/). Note: If the latest Jenkins build was not successful, the deployment will fail.
+The deployment will fetch the latest build from [Jenkins](https://jenkins.hoccer.de/job/talk-webclient-backend/). Note: If the latest Jenkins build was not successful, the deployment will fail.
 
 ## Prerequisites
 
@@ -26,11 +26,10 @@ $ cp config/secrets.yml_template config/secrets.yml
 
 ### Preparation of a target machine
 
-The target machine should be provisioned using the corresponding [puppet configuration](https://github.com/hoccer/hoccer-receiver-puppet-configuration).
+The target machine should be provisioned using the corresponding [puppet configuration](https://github.com/hoccer/talk-webclient-backend-puppet-configuration).
 
 The deployment to a stage configured in `config/deploy/<stagename>.rb` can be started as follows:
 
 ```bash
 $ bundle exec cap <stagename> deploy
 ```
-

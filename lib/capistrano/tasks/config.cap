@@ -15,11 +15,15 @@ namespace :config do
         server.uri = <%= config[:talk_server] %>
         server.certificate_file = ssl_bks
 
+        # Backend config
+        backend.port = <%= config[:backend_port] %>
+
         # Client config
         client.contact_name = <%= config[:contact_name] %>
         client.avatar_file = <%= config[:avatar_file] %>
         client.encrypted_attachment_dir = encrypted_attachments
         client.decrypted_attachment_dir = decrypted_attachments
+        client.database_dir = database
 
         # Client position
         client.latitude = <%= config[:latitude] %>
@@ -30,7 +34,7 @@ namespace :config do
       EOF
 
       content = template.result(binding)
-      config_file = "#{release_path}/receiver.conf"
+      config_file = "#{release_path}/backend.conf"
       upload! StringIO.new(content), config_file
       sudo :chmod, 644, config_file
     end
