@@ -1,4 +1,4 @@
-server 'receiver.talk.hoccer.de', user: 'deployment', roles: ['app'], config: {
+server 'wall.talk.hoccer.de', user: 'deployment', roles: ['app'], config: {
   talk_server: 'wss://talkserver-test1.talk.hoccer.de:8443',
   backend_port: 8080,
   contact_name: 'wall (production)',
