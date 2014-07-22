@@ -28,9 +28,6 @@ namespace :config do
         # Client position
         client.latitude = <%= config[:latitude] %>
         client.longitude = <%= config[:longitude] %>
-
-        # Client database
-        client.write_db_files = false
       EOF
 
       content = template.result(binding)
