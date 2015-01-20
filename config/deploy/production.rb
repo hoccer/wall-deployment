@@ -1,8 +1,8 @@
 server 'wall.talk.hoccer.de', user: 'deployment', roles: ['app'], config: {
-  talk_server: 'wss://talkserver-test1.talk.hoccer.de:8443',
+  talk_server: 'wss://talkserver.talk.hoccer.de',
   backend_port: 5000,
   contact_name: 'Hoccer Wall',
-  avatar_file: 'football.jpg',
+  avatar_file: 'stroeer.png',
 
   # ART+COM Cologne
   latitude: 50.948613,
