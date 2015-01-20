@@ -1,6 +1,6 @@
 # Hoccer XO WebClient Backend Deployment
 
-The deployment will fetch the latest build from [Jenkins](https://jenkins.hoccer.de/job/talk-webclient-backend/). Note: If the latest Jenkins build was not successful, the deployment will fail.
+The deployment will fetch the latest build from [Jenkins](https://jenkins.hoccer.de/job/hoccer-talk-develop/). Note: If the latest Jenkins build was not successful, the deployment will fail.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ $ cp config/secrets.yml_template config/secrets.yml
 
 ### Preparation of a target machine
 
-The target machine should be provisioned using the corresponding [puppet configuration](https://github.com/hoccer/talk-webclient-backend-puppet-configuration).
+The target machine should be provisioned using the corresponding [puppet configuration](https://github.com/hoccer/wall-puppet-configuration).
 
 The deployment to a stage configured in `config/deploy/<stagename>.rb` can be started as follows:
 
