@@ -1,5 +1,5 @@
 namespace :jenkins do
-  secrets_file = 'config/secrets.yml'
+  secrets_file = '../../secrets.yml'
 
   task :load_secrets do
     if File.exist?(secrets_file)
