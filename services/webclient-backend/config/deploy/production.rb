@@ -3,6 +3,7 @@ server 'wall.talk.hoccer.de', user: 'deployment', roles: ['app'], config: {
   backend_port: 5000,
   contact_name: 'Hoccer Wall',
   avatar_file: 'stroeer.png',
+  approve_all_downloads: true,
 
   # ART+COM Cologne
   latitude: 50.948613,

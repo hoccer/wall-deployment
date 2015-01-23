@@ -24,6 +24,7 @@ namespace :config do
         client.encrypted_attachment_dir = encrypted_attachments
         client.decrypted_attachment_dir = decrypted_attachments
         client.database_dir = database
+        client.approve_all_downloads = <%= config[:approve_all_downloads] %>
 
         # Client position
         client.latitude = <%= config[:latitude] %>
