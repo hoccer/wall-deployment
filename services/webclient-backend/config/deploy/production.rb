@@ -11,4 +11,8 @@ server 'wall.talk.hoccer.de', user: 'deployment', roles: ['app'], config: {
   # # ART+COM Berlin
   # latitude: 52.501284,
   # longitude: 13.344569
+
+  # # Stroeer Media
+  # latitude: 50.859323,
+  # longitude: 7.000613
 }
